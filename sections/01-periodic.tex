@@ -1,0 +1,98 @@
+\section{Periodic functions}
+    A function $f(x)$ is said to be periodic if it is defined for all $x\in\mathbb{R}$ and if there exists some $p>0$ such that
+    \begin{align}
+        f(x+p)=f(x),\quad\forall x \label{eqn:periodic:fx-01}
+    \end{align}
+    where $p$ is known as the period of the function.
+
+    From equation (\ref{eqn:periodic:fx-01}), we have that
+    \begin{align*}
+        f(x+2p)&=f(x+p+p) \\
+            &=f[(x+p)+p] \\
+            &=f(x+p) \\
+        \implies f(x+2p)&=f(x)
+    \end{align*}
+
+    In general, given any integer $n$, we have for a periodic function
+    \begin{align*}
+        f(x+np)=f(x),\quad\forall x
+    \end{align*}
+
+    \begin{itemize}
+        \item If $f(x)$ and $g(x)$ have a period $p$, then
+        $$h(x)=\alpha f(x)+\beta g(x),\quad\alpha,\beta\text{ being constants}$$
+        also has a period $p$.
+
+        \item If $f(x)$ has a smallest period $p$, this is known as the \textit{fundamental period} of $f(x)$.
+        \begin{itemize}
+            \item For $\cos{x}$ and $\sin{x}$, the fundamental period is $2\pi$.
+            \item For $\cos{2x}$ and $\sin{2x}$, the fundamental period is $\dfrac{2\pi}{2}=\pi$.
+            \item For $\cos{nx}$ and $\sin{nx}$, the fundamental period is $\dfrac{2\pi}{n}$.
+        \end{itemize}
+    \end{itemize}
+
+    \subsection{Trigonometric series}
+        Consider the following simple trigonometric functions:
+        $$1,\;\cos{x},\;\sin{x},\;\cos{2x},\;\sin{2x},\;\dots\;,\;\cos{nx},\;\sin{nx},\;\dots$$
+        Then a trigonometric series is one arising out of an infinite linear sum of these trigonometric functions, as follows:
+        \begin{align*}
+            &a_0+a_1\cos{x}+b_1\sin{x}+a_2\cos{2x}+b_2\sin{2x}+\cdots \\
+            &=a_0+\sum_{n=1}^{\infty}{\qty(a_n\cos{nx}+b_n\sin{nx})}
+        \end{align*}
+        \begin{itemize}
+            \item Each term in a trigonometric series has a period $2\pi$. Therefore, if the series converges, its sum will also be a function of period $2\pi$.
+        \end{itemize}
+
+    \setcounter{equation}{0}
+    \subsection{Orthogonality of sine and cosine functions}
+        For any $a\in\mathbb{R}$, we have
+        \begin{align}
+            \text{Because $\sin{nx}$ is an odd function:}\quad&\int\limits_{-a}^{a}{\sin{nx}\,\dd{x}}=0 \label{eqn:integ-sin}\\
+            \text{Because $\cos{nx}$ is an even function:}\quad&\int\limits_{-a}^{a}{\cos{nx}\,\dd{x}}=0 \label{eqn:integ-cos}
+        \end{align}
+
+        \begin{multicols}{2}
+
+            Now we have
+            \begin{align}
+                &\int\limits_{-a}^{a}{\cos{nx}\cos{nx}\,\dd{x}} \nonumber\\
+                &=\int\limits_{-a}^{a}{\qty[\dfrac{\cos{(nx+nx)}+\cos{(nx-nx)}}{2}]\,\dd{x}} \nonumber\\
+                &=\dfrac{1}{2}\int\limits_{-a}^{a}{\qty(\cos{2nx}+\cos{0})\,\dd{x}} \nonumber\\
+                &=\dfrac{1}{2}\underbrace{\int\limits_{-a}^{a}{\cos{2nx}\,\dd{x}}}_{=0}+\dfrac{1}{2}\int\limits_{-a}^{a}{\dd{x}} \nonumber\\
+                &=\dfrac{1}{2}\qty[a-(-a)] \nonumber\\
+                \implies&\boxed{\int\limits_{-a}^{a}{\cos{nx}\cos{nx}\,\dd{x}}=a} \label{eqn:ortho-cosnx-cosnx}
+            \end{align}
+    
+            Again, we have
+            \begin{align}
+                &\int\limits_{-a}^{a}{\cos{nx}\cos{mx}\,\dd{x}} \nonumber\\
+                &=\int\limits_{-a}^{a}{\qty[\dfrac{\cos{(n+m)x}+\cos{(n-m)x}}{2}]\,\dd{x}} \nonumber\\
+                &=\dfrac{1}{2}\int\limits_{-a}^{a}{\qty(\cos{px}+\cos{qx})\,\dd{x}} \nonumber\\
+                &\qquad\text{where }p=n+m\text{ and }q=n-m \nonumber\\
+                &=\dfrac{1}{2}\underbrace{\int\limits_{-a}^{a}{\cos{px}\,\dd{x}}}_{=0}+\dfrac{1}{2}\underbrace{\int\limits_{-a}^{a}{\cos{qx}\,\dd{x}}}_{=0} \nonumber\\
+                \implies&\boxed{\int\limits_{-a}^{a}{\cos{nx}\cos{mx}\,\dd{x}}=0} \label{eqn:ortho-cosnx-cosmx}
+            \end{align}
+            
+        \end{multicols}
+
+        Equations (\ref{eqn:ortho-cosnx-cosnx}) and (\ref{eqn:ortho-cosnx-cosmx}) can be combined as follows:
+        \begin{align}
+            \boxed{\int\limits_{-a}^{a}{\cos{nx}\cos{mx}\,\dd{x}}=a\delta_{nm}} \label{eqn:ortho-cos}
+        \end{align}
+
+        Similarly, we can obtain
+        \begin{align}
+            \boxed{\int\limits_{-a}^{a}{\sin{nx}\sin{mx}\,\dd{x}}=a\delta_{nm}} \label{eqn:ortho-sin}
+        \end{align}
+
+        Also, we have
+        \begin{align}
+            &\int\limits_{-a}^{a}{\sin{nx}\cos{mx}\,\dd{x}} \nonumber\\
+            &=\int\limits_{-a}^{a}{\qty[\dfrac{\sin{(n+m)x}+\sin{(n-m)x}}{2}]\,\dd{x}} \nonumber\\
+            &=\dfrac{1}{2}\int\limits_{-a}^{a}{\qty(\sin{px}+\sin{qx})\,\dd{x}} \nonumber\\
+            &\qquad\text{where }p=n+m\text{ and }q=n-m \nonumber\\
+            &=\dfrac{1}{2}\underbrace{\int\limits_{-a}^{a}{\sin{px}\,\dd{x}}}_{=0}+\dfrac{1}{2}\underbrace{\int\limits_{-a}^{a}{\sin{qx}\,\dd{x}}}_{=0} \nonumber\\
+            \implies&\boxed{\int\limits_{-a}^{a}{\sin{nx}\cos{mx}\,\dd{x}}=0} \label{eqn:ortho-sin-cos}
+        \end{align}
+
+        Equations (\ref{eqn:ortho-cos}), (\ref{eqn:ortho-sin}) and (\ref{eqn:ortho-sin-cos}) are known as the orthogonality relations of cosine and sine functions.        
