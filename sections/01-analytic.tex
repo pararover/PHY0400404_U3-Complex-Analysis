@@ -1,7 +1,41 @@
 \section{Functions of complex variables}
+	Suppose, to each value that a complex variable $z$ can assume, there corresponds one or more values of a complex variable $w$. We then say that $w$ is a function of $z$ and write $w=f(z)$.
+	\begin{itemize}
+		\item The complex variable $z$ is called an \textit{independent variable}
+		\item The complex variable $w$ is called a \textit{dependent variable}. 
+	\end{itemize}
+	
+	\subsection{Complex derivatives}
+		\begin{figure}[h!]
+			\centering
+			\includegraphics[width=0.75\textwidth]{figures/fig_comp-derivative}
+		\end{figure}
+		If a complex function $f(z)$ is single-valued in some region $\mathcal{R}$ of the $z$ plane, the derivative of $f(z)$ is defined as
+		\begin{align*}
+			f'(z)&=\lim_{\Delta z\to 0}{\dfrac{\Delta w}{\Delta z}}=\lim_{\Delta z\to 0}{\dfrac{f(z+\Delta z)-f(z)}{\Delta z}}
+		\end{align*}
+		provided that the limit exists independent of the manner in which $\Delta z$ approaches $0$. In such a case, we say that $f(z)$ is
+		\textit{differentiable} at $z$ and $f'(z)$ is known as the \textit{derivative} of the function $f(z)$.
     
 	\subsection{Complex analytic functions}
+		If the derivative $f'(z)$ exists at all points $z$ of a region $\mathcal{R}$, then $f(z)$ is said to be analytic in $\mathcal{R}$ and is referred to as an \textit{analytic function} in $\mathcal{R}$.
+		
+		A function $f(z)$ is said to be analytic at a point $z_0$ if there exists a neighborhood $|z - z_0| < \delta$ at all points
+		of which $f'(z)$ exists.
+		
+		\textbf{Note:} Analytic functions are sometimes also known as \textit{regular} or \textit{holomorphic} functions.
 
 	\subsection{Cauchy-Riemann conditions}
-	
+		Given a complex function which can be written as follows:
+		\begin{align*}
+			w=f(z)=u(x,y)+iv(x,y)
+		\end{align*}
+		and is analytic over a region $\mathcal{R}$ on the $z$-plane, then the 2D functions $u(x,y)$ and $v(x,y)$ satisfy the following Cauchy-Riemann conditions in $\mathcal{R}$:
+		\begin{align*}
+			\boxed{\pdv{u}{x}=\pdv{v}{y}\qq{and}\pdv{u}{y}=-\pdv{v}{x}}
+		\end{align*}
+		If the partial derivatives of $u$ and $v$ are continuous in $\mathcal{R}$, then the Cauchy-Riemann equations are sufficient
+		conditions that $f(z)$ be analytic in $\mathcal{R}$.
+		
+		\textbf{Note:} The functions $u(x,y)$ and $v(x,y)$ are known as \textit{conjugate functions}.
 	\subsection{Examples of analytic functions}
