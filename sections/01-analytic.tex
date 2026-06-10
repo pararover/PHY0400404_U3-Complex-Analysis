@@ -295,4 +295,55 @@
 				\implies f'(z)&=2(1+i)z
 			\end{align*}
 			
+			\item Obtain the Cauchy-Riemann conditions in polar form.\\ \setcounterref{equation}{0}
+			\textbf{Solution:} The polar representation of a complex number is
+			\begin{align}
+				z=x+iy=re^{i\theta} \label{eqn:z-polar}
+			\end{align}
+			Differentiating equation (\ref{eqn:z-polar}) with respect to $r$ and $\theta$ give us\vspace{-4ex}
+			\begin{multicols}{2}
+				\begin{align}
+					\pdv{z}{r}&=e^{i\theta} \label{eqn:dz-dr}
+				\end{align}
+				
+				\begin{align}
+					\pdv{z}{\theta}&=ire^{i\theta} \label{eqn:dz-dtheta}
+				\end{align}
+			\end{multicols}
+			Let us now consider an analytic function given as
+			\begin{align}
+				f(z)=u+iv \label{eqn:f-uiv}
+			\end{align}
+			Differentiating equation (\ref{eqn:f-uiv}) with respect to $r$ gives us
+			\begin{align*}
+				\pdv{r}\qty[f(z)]&=\pdv{r}\qty(u+iv) \\
+				\implies\dv{f}{z}\pdv{z}{r}&=\pdv{u}{r}+i\pdv{v}{r} \\
+				\implies f'(z)e^{i\theta}&=\pdv{u}{r}+i\pdv{v}{r}\qq{[using eqn. (\ref{eqn:dz-dr}) on LHS]}
+			\end{align*}
+			Again, differentiating equation (\ref{eqn:f-uiv}) with respect to $\theta$ gives us
+			\begin{align}
+				\pdv{\theta}\qty[f(z)]&=\pdv{\theta}\qty(u+iv) \nonumber\\
+				\implies\dv{f}{z}\pdv{z}{\theta}&=\pdv{u}{\theta}+i\pdv{v}{\theta} \nonumber\\
+				\implies irf'(z)e^{i\theta}&=\pdv{u}{\theta}+i\pdv{v}{\theta}\qq{[using eqn. (\ref{eqn:dz-dtheta}) on LHS]} \nonumber\\
+				\implies ir\qty[\pdv{u}{r}+i\pdv{v}{r}]&=\pdv{u}{\theta}+i\pdv{v}{\theta} \nonumber\\
+				\implies ir\pdv{u}{r}+i^2r\pdv{v}{r}&=\pdv{u}{\theta}+i\pdv{v}{\theta} \nonumber\\
+				\implies-r\pdv{v}{r}+ir\pdv{u}{r}&=\pdv{u}{\theta}+i\pdv{v}{\theta} \label{eqn:du-drdth:dv-drdth}
+			\end{align}
+			Equating the imaginary and real parts on either sides of equation (\ref{eqn:du-drdth:dv-drdth}), we obtain\vspace{-4ex}
+			\begin{multicols}{2}
+				\begin{align*}
+					r\pdv{u}{r}&=\pdv{v}{\theta} \\
+					\implies\pdv{u}{r}&=\dfrac{1}{r}\pdv{v}{\theta}
+				\end{align*}
+				
+				\begin{align*}
+					-r\pdv{v}{r}&=\pdv{u}{\theta} \\
+					\implies\pdv{u}{\theta}&=-r\pdv{v}{r}
+				\end{align*}
+			\end{multicols}
+			Therefore, the Cauchy-Riemann conditions in polar coordinates are
+			\begin{empheq}[box=\fbox]{align*}
+				\pdv{u}{r}&=\dfrac{1}{r}\pdv{v}{\theta} \\
+				\pdv{u}{\theta}&=-r\pdv{v}{r}
+			\end{empheq}
 		\end{enumerate}
