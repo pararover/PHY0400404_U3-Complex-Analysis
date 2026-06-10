@@ -1,3 +1,22 @@
+\section*{Complex trigonometric and hyperbolic identities}
+	\begin{multicols}{2}
+		\begin{enumerate}
+			\item $\cosh{x}=\dfrac{e^x+e^{-x}}{2}$
+			\item $\sinh{x}=\dfrac{e^x-e^{-x}}{2}$
+			\item $\cos{x}=\dfrac{e^{ix}+e^{-ix}}{2}$
+			\item $\sin{x}=\dfrac{e^{ix}-e^{-ix}}{2i}$
+		\end{enumerate}
+	\end{multicols}
+	Using the above identities, it can be shown that
+	\begin{multicols}{2}
+		\begin{enumerate}
+			\item $\cosh{ix}=\cos{x}$
+			\item $\cos{ix}=\cosh{x}$
+			\item $\sinh{ix}=i\sin{x}$
+			\item $\sin{ix}=i\sinh{x}$
+		\end{enumerate}
+	\end{multicols}
+
 \section{Functions of complex variables}
 	Suppose, to each value that a complex variable $z$ can assume, there corresponds one or more values of a complex variable $w$. We then say that $w$ is a function of $z$ and write $w=f(z)$.
 	\begin{itemize}
@@ -23,7 +42,7 @@
 		A function $f(z)$ is said to be analytic at a point $z_0$ if there exists a neighborhood $|z - z_0| < \delta$ at all points
 		of which $f'(z)$ exists.
 		
-		\textbf{Note:} Analytic functions are sometimes also known as \textit{regular} or \textit{holomorphic} functions.
+		\textbf{Note:} Analytic functions are sometimes also known as \textit{regular} or \textit{holomorphic} or \textit{monogenic} functions.
 
 	\subsection{Cauchy-Riemann conditions}
 		Given a complex function which can be written as follows:
@@ -38,4 +57,188 @@
 		conditions that $f(z)$ be analytic in $\mathcal{R}$.
 		
 		\textbf{Note:} The functions $u(x,y)$ and $v(x,y)$ are known as \textit{conjugate functions}.
-	\subsection{Examples of analytic functions}
+		
+		\subsubsection*{Theorem 1}
+			The necessary conditions for a function $f(z)=u(x,y)+iv(x,y)$ to be analytic at all points in a region $\mathcal{R}$ are
+			\begin{enumerate}[a)]
+				\item $\pdv{u}{x}=\pdv{v}{y}$
+				\item $\pdv{u}{y}=-\pdv{v}{x}$
+			\end{enumerate}
+			provided that $\pdv{u}{x}$, $\pdv{u}{y}$, $\pdv{v}{x}$ and $\pdv{v}{y}$ exist.
+			
+		\subsubsection*{Theorem 2}
+			The sufficient conditions for a function $f(z)=u(x,y)+iv(x,y)$ to be analytic at all points in a region $\mathcal{R}$ are
+			\begin{enumerate}[a)]
+				\item $\pdv{u}{x}=\pdv{v}{y}$ and $\pdv{u}{y}=-\pdv{v}{x}$
+				\item $\pdv{u}{x}$, $\pdv{u}{y}$, $\pdv{v}{x}$ and $\pdv{v}{y}$ are continuous functions of $x$ and $y$ in the region $\mathcal{R}$.
+			\end{enumerate}
+			
+		\subsubsection*{Theorem 3}
+			Given a function $f(z)=u(x,y)+iv(x,y)$, which is analytic over a region $\mathcal{R}$, its derivative is obtained as
+			\begin{align*}
+				f'(z)=\dv{f}{z}=\pdv{u}{x}+i\pdv{v}{x}=\pdv{v}{y}-i\pdv{u}{y}
+			\end{align*}
+		
+	\subsection{Examples of analyticity of complex functions}
+		\begin{enumerate}
+			\item Determine whether $f(z)=\dfrac{1}{z}$ is analytic or not.\\
+			\textbf{Solution:} Let us consider
+			\begin{align*}
+				f(z)&=\dfrac{1}{z} \\
+					&=\dfrac{1}{x+iy} \\
+					&=\qty(\dfrac{1}{x+iy})\times\qty(\dfrac{x-iy}{x-iy}) \\
+					&=\dfrac{x-iy}{\qty(x+iy)\qty(x-iy)} \\
+					&=\dfrac{x-iy}{x^2+y^2} \\
+				\implies f(z)&=\qty(\dfrac{x}{x^2+y^2})+i\qty(\dfrac{-y}{x^2+y^2}) \\
+					&=u(x,y)+iv(x,y)
+			\end{align*}
+			This gives us
+			\begin{align*}
+				u(x,y)=\dfrac{x}{x^2+y^2}\qq{and}v(x,y)=\dfrac{-y}{x^2+y^2}
+			\end{align*}
+			
+			We obtain the partial derivatives as\vspace{-3ex}
+			\begin{multicols}{2}
+				\begin{align*}
+					\pdv{u}{x}&=\dfrac{\qty(x^2+y^2)\times 1-x\times 2x}{\qty(x^2+y^2)^2} \\
+					&=\dfrac{x^2+y^2-2x^2}{\qty(x^2+y^2)^2} \\
+					&=\dfrac{y^2-x^2}{\qty(x^2+y^2)^2}
+				\end{align*}
+				
+				\begin{align*}
+					\pdv{u}{y}&=\dfrac{\qty(x^2+y^2)\times 0-x\times 2y}{\qty(x^2+y^2)^2} \\
+					&=\dfrac{-2xy}{\qty(x^2+y^2)^2}
+				\end{align*}
+			\end{multicols}
+			\vspace{-3ex}
+			
+			\begin{multicols}{2}
+				\begin{align*}
+					\pdv{v}{x}&=\dfrac{\qty(x^2+y^2)\times 0-(-y)\times 2x}{\qty(x^2+y^2)^2} \\
+					&=\dfrac{2xy}{\qty(x^2+y^2)^2}
+				\end{align*}
+				
+				\begin{align*}
+					\pdv{v}{y}&=\dfrac{\qty(x^2+y^2)\times (-1)-(-y)\times 2y}{\qty(x^2+y^2)^2} \\
+					&=\dfrac{2y^2-x^2-y^2}{\qty(x^2+y^2)^2} \\
+					&=\dfrac{y^2-x^2}{\qty(x^2+y^2)^2}
+				\end{align*}
+			\end{multicols}
+			From the above partial derivatives, we find that
+			\begin{align*}
+				\pdv{u}{x}=\pdv{v}{y}\qq{and}\pdv{u}{y}=-\pdv{v}{x}
+			\end{align*}
+			Hence the Cauchy-Riemann conditions are satisfied. Also the partial derivatives $\pdv{u}{x}$, $\pdv{u}{y}$, $\pdv{v}{x}$ and $\pdv{v}{y}$ are continuous everywhere except at $(0,0)$.
+			
+			Therefore the complex function $f(z)=\dfrac{1}{z}$ is analytic everywhere except at $z=0$.
+			
+			\item Show that the function $f(z)=e^x\qty(\cos{y}+i\sin{y})$ is analytic, and then find its derivative.\\
+			\textbf{Solution:} Let us consider
+			\begin{align*}
+				f(z)&=e^x\qty(\cos{y}+i\sin{y}) \\
+				\implies f(z)&=\qty(e^x\cos{y})+i\qty(e^x\sin{y}) \\
+				&=u(x,y)+iv(x,y)
+			\end{align*}
+			
+			This gives us
+			\begin{align*}
+				u(x,y)=e^x\cos{y}\qq{and}v(x,y)=e^x\sin{y}
+			\end{align*}
+			
+			We obtain the partial derivatives as\vspace{-3ex}
+			\begin{multicols}{2}
+				\begin{align*}
+					\pdv{u}{x}&=\pdv{x}\qty(e^x\cos{y}) \\
+						&=e^x\cos{y}
+				\end{align*}
+				
+				\begin{align*}
+					\pdv{u}{y}&=\pdv{y}\qty(e^x\cos{y}) \\
+						&=-e^x\sin{y}
+				\end{align*}
+			\end{multicols}
+			\vspace{-3ex}
+			
+			\begin{multicols}{2}
+				\begin{align*}
+					\pdv{v}{x}&=\pdv{x}\qty(e^x\sin{y}) \\
+						&=e^x\sin{y}
+				\end{align*}
+				
+				\begin{align*}
+					\pdv{v}{y}&=\pdv{y}\qty(e^x\sin{y}) \\
+						&=e^x\cos{y}
+				\end{align*}
+			\end{multicols}
+			From the above partial derivatives, we find that
+			\begin{align*}
+				\pdv{u}{x}=\pdv{v}{y}\qq{and}\pdv{u}{y}=-\pdv{v}{x}
+			\end{align*}
+			Hence the Cauchy-Riemann conditions are satisfied. Also the partial derivatives $\pdv{u}{x}$, $\pdv{u}{y}$, $\pdv{v}{x}$ and $\pdv{v}{y}$ are continuous everywhere.
+			
+			Therefore the complex function $f(z)=e^x\qty(\cos{y}+i\sin{y})$ is analytic everywhere.
+			
+			Finally, the derivative of the given function is obtained as
+			\begin{align*}
+				f'(z)&=\pdv{u}{x}+i\pdv{v}{x} \\
+					&=e^x\cos{y}+ie^x\sin{y} \\
+				\implies f'(z)&=e^x\qty(\cos{y}+i\sin{y})
+			\end{align*}
+			
+			\item Test the analyticity of the function $w=\sin{z}$ and thereby show that $\dv{z}\qty(\sin{z})=\cos{z}$.\\
+			\textbf{Solution:} We have
+			\begin{align*}
+				w&=\sin{z} \\
+					&=\sin\qty(x+iy) \\
+					&=\sin{x}\cos{iy}+\cos{x}\sin{iy} \\
+					&=\sin{x}\qty(\cosh{y})+\cos{x}\qty(i\sinh{y}) \\
+				\implies w=f(z)&=\sin{x}\cosh{y}+i\cos{x}\sinh{y}
+			\end{align*}
+			This gives us
+			\begin{align*}
+				u(x,y)=\sin{x}\cosh{y}\qq{and}v(x,y)=\cos{x}\sinh{y}
+			\end{align*}
+			The partial derivatives are\vspace{-3ex}
+			\begin{multicols}{2}
+				\begin{align*}
+					\pdv{u}{x}&=\pdv{x}\qty(\sin{x}\cosh{y}) \\
+						&=\cos{x}\cosh{y}
+				\end{align*}
+				
+				\begin{align*}
+					\pdv{u}{y}&=\pdv{y}\qty(\sin{x}\cosh{y}) \\
+						&=\sin{x}\sinh{y}
+				\end{align*}
+			\end{multicols}
+			\vspace{-3ex}
+			
+			\begin{multicols}{2}
+				\begin{align*}
+					\pdv{v}{x}&=\pdv{x}\qty(\cos{x}\sinh{y}) \\
+						&=-\sin{x}\sinh{y}
+				\end{align*}
+				
+				\begin{align*}
+					\pdv{v}{y}&=\pdv{y}\qty(\cos{x}\sinh{y}) \\
+						&=\cos{x}\cosh{y}
+				\end{align*}
+			\end{multicols}
+			From the above partial derivatives, we find that
+			\begin{align*}
+				\pdv{u}{x}=\pdv{v}{y}\qq{and}\pdv{u}{y}=-\pdv{v}{x}
+			\end{align*}
+			Hence the Cauchy-Riemann conditions are satisfied. Also the partial derivatives $\pdv{u}{x}$, $\pdv{u}{y}$, $\pdv{v}{x}$ and $\pdv{v}{y}$ are continuous everywhere.
+			
+			Therefore the complex function $f(z)=\sin{z}$ is analytic everywhere.
+			
+			Now, we evaluate the derivative as follows
+			\begin{align*}
+				\dv{z}\qty(\sin{z})&=\pdv{u}{x}+i\pdv{v}{x} \\
+					&=\cos{x}\cosh{y}+i\qty(-\sin{x}\sinh{y}) \\
+					&=\cos{x}\cosh{y}-\sin{x}\qty(i\sinh{y}) \\
+					&=\cos{x}\qty(\cos{iy})-\sin{x}\qty(\sin{iy}) \\
+					&=\cos\qty(x+iy) \\
+				\implies\dv{z}\qty(\sin{z})&=\cos{z}
+			\end{align*}
+			
+		\end{enumerate}
