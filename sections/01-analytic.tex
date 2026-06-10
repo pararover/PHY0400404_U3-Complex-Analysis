@@ -241,4 +241,58 @@
 				\implies\dv{z}\qty(\sin{z})&=\cos{z}
 			\end{align*}
 			
+			\item Find the values of $C_1$ and $C_2$ such that the function
+			\begin{align*}
+				f(z)=x^2+C_1y^2-2xy+i\qty(C_2x^2-y^2+2xy)
+			\end{align*}
+			is analytic. Also show that $f'(z)=2(1+i)z$.\\
+			\textbf{Solution:} The given function is
+			\begin{align*}
+				f(z)=x^2+C_1y^2-2xy+i\qty(C_2x^2-y^2+2xy)
+			\end{align*}
+			from which we obtain
+			\begin{align*}
+				u(x,y)=x^2+C_1y^2-2xy\qq{and}v(x,y)=C_2x^2-y^2+2xy
+			\end{align*}
+			
+			For the given function to be analytic, it should satisfy the Cauchy-Riemann conditions, i.e.
+			\begin{align*}
+				\pdv{u}{x}&=\pdv{v}{y} \\
+				\implies\pdv{x}\qty(x^2+C_1y^2-2xy)&=\pdv{y}\qty(C_2x^2-y^2+2xy) \\
+				\implies 2x-2y&=-2y+2x
+			\end{align*}
+			and
+			\begin{align*}
+				\pdv{u}{y}&=-\pdv{v}{x} \\
+				\implies\pdv{y}\qty(x^2+C_1y^2-2xy)&=-\pdv{x}\qty(C_2x^2-y^2+2xy) \\
+				\implies 2C_1y-2x&=-\qty(2C_2x+2y) \\
+				\implies 2C_1y-2x&=-2y-2C_2x
+			\end{align*}
+			Comparing the coefficients of $y$ and $x$ above, we obtain
+			\begin{align*}
+				2C_1=-2&\qq{and}-2C_2=-2 \\
+				\implies C_1=-1&\qq{and}C_2=1
+			\end{align*}
+			Hence the given function is
+			\begin{align*}
+				f(z)=x^2-y^2-2xy+i\qty(x^2-y^2+2xy)
+			\end{align*}
+			
+			Now, we have
+			\begin{align*}
+				\pdv{u}{y}=2C_1y-2x& \\
+				\implies\pdv{u}{y}=-2y-2x&\qq{and}\pdv{v}{y}=-2y+2x
+			\end{align*}
+			
+			Therefore, the derivative is
+			\begin{align*}
+				f'(z)&=\pdv{v}{y}-i\pdv{u}{y} \\
+				\implies f'(z)&=-2y+2x-i\qty(-2y-2x) \\
+					&=-2y+2x+2i\qty(x+y) \\
+					&=2\qty[(x+ix)+(-y+iy)] \\
+					&=2\qty[(1+i)x+i(1+i)y] \\
+					&=2(1+i)(x+iy) \\
+				\implies f'(z)&=2(1+i)z
+			\end{align*}
+			
 		\end{enumerate}
