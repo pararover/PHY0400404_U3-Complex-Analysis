@@ -1,7 +1,51 @@
 \section{Complex integration}
     
     \subsection{Simply and multiply connected regions}
+    	A region $\mathcal{R}$ is called \emph{simply-connected} if any simple closed curve, which lies in $\mathcal{R}$, can be
+    	shrunk to a point without leaving $\mathcal{R}$.
+    	
+    	A region $\mathcal{R}$, which is not simply-connected, is called \emph{multiply-connected}.
+    	
+    	\subsubsection{Simply connected region}
+    		\begin{figure}[h!]
+    			\centering
+    			\includegraphics[width=0.35\textwidth]{figures/fig_simply-connected}
+    		\end{figure}
+    		Suppose $\mathcal{R}$ is the region defined by $|z|<2$ shown shaded in the above figure. If $\Gamma$ is any simple
+    		closed curve lying in $\mathcal{R}$, i.e. whose points are in $\mathcal{R}$, we see that it can be shrunk to a point that lies in $\mathcal{R}$, and thus does not leave $\mathcal{R}$, so that $\mathcal{R}$ is simply-connected. 
+    	
+    	\subsubsection{Multiply connected region}
+    		\begin{figure}[h!]
+    			\centering
+    			\includegraphics[width=0.35\textwidth]{figures/fig_multiply-connected}
+    		\end{figure}
+    		If $\mathcal{R}$ is the region defined by $1<|z|<2$, shown shaded in the above figure, then there is a simple closed curve $\Gamma$ lying in $\mathcal{R}$ that cannot possibly be shrunk to a point without leaving $\mathcal{R}$, so that $\mathcal{R}$ is multiply-connected.
+    		
+    		\begin{figure}[h!]
+    			\centering
+    			\includegraphics[width=0.35\textwidth]{figures/fig_region-holes}
+    		\end{figure}
+    		Intuitively, a simply-connected region is one that does not have any ``holes'' in it, while a multiply-connected region is one that does. The multiply-connected region of the above figure has three holes and, hence, is said to be triply-connected.
     
     \subsection{Cauchy's integral theorem}
+    	Let $f(z)$ be analytic in a region $\mathcal{R}$ and on its boundary $C$. Then
+    	\begin{align*}
+    		\boxed{\oint_{C}{f(z)\,\dd{z}}=0}
+    	\end{align*}
+    	This fundamental theorem, known as \emph{Cauchy's integral theorem}, is valid for both simply- and multiply-connected regions. 
     
-    \subsection{Cauchy's integral formula}
+    \subsection{Cauchy's integral formulas}
+    	\begin{figure}[h!]
+    		\centering
+    		\includegraphics[width=0.4\textwidth]{figures/fig_cif}
+    	\end{figure}
+    	Let $f(z)$ be analytic inside and on a simple closed curve $C$ and let $a$ be any point inside $C$. Then
+    	\begin{align*}
+    		f(a)&=\dfrac{1}{2\pi i}\oint_{C}{\dfrac{f(z)}{z-a}\dd{z}}
+    	\end{align*}
+    	where $C$ is traversed in the positive (counterclockwise) sense.
+    	
+    	Also, the $n^\text{th}$ derivative of $f(z)$ at $z=a$ is given by
+    	\begin{align*}
+    		f^{(n)}(a)&=\dfrac{n!}{2\pi i}\oint_{C}{\dfrac{f(z)}{(z-a)^{n+1}}\dd{z}},\quad n=1,2,3,\dots
+    	\end{align*}
