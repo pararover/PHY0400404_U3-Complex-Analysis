@@ -311,4 +311,7 @@ TSWLatexianTemp*
 # glossaries
 *.glstex
 
+# ODP temporary files
+*.odp#
+
 # End of https://www.toptal.com/developers/gitignore/api/latex
