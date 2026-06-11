@@ -85,6 +85,54 @@
     			\oint_{C}{f(z)\dd{z}}&=0
     		\end{align*}
     		which proves \emph{Cauchy's integral theorem}.
+    		
+    	\subsubsection*{Examples}
+    		\begin{enumerate}
+    			\item Evaluate the integral
+    			$$\oint_{C}{\dfrac{3z^2+7z+1}{z+1}\dd{z}}$$
+    			where $C$ is the circle $|z|=\dfrac{1}{2}$.\\
+    			\textbf{Solution:} The integrand is $f(z)=\dfrac{3z^2+7z+1}{z+1}$, whose poles are obtained by setting the denominator to zero, i.e. $z+1=0\implies z_0=-1$.
+    			
+    			The given circle $C$ is centred at the origin and has a radius of $\dfrac{1}{2}$.
+    			\begin{figure}[h!]
+    				\centering
+    				\includegraphics[width=0.5\textwidth]{figures/fig_cit-eg-01}
+    			\end{figure}
+    			
+    			We find that the singularity $z_0=-1$ lies outside the circle $C$. Hence the function $f(z)$ is analytic everywhere inside $C$.
+    			
+    			Therefore, by Cauchy's integral theorem, we have
+    			\begin{align*}
+    				\oint_{C}{f(z)\dd{z}}&=0 \\
+    				\implies\oint_{C}{\dfrac{3z^2+7z+1}{z+1}\dd{z}}&=0
+    			\end{align*}
+    			
+    			\item Evaluate the integral
+    			$$\oint_{C}{\dfrac{z+4}{z^2+2z+5}\dd{z}}$$
+    			where $C$ is the circle $|z+1|=1$.\\
+    			\textbf{Solution:} The integrand is $f(z)=\dfrac{z+4}{z^2+2z+5}$, whose poles are obtained by setting the denominator to zero, i.e.
+    			\begin{align*}
+    				z^2+2z+5&=0 \\
+    				\implies z_0&=\dfrac{-2\pm\sqrt{4-20}}{2}=\dfrac{-2\pm\sqrt{-16}}{2}=\dfrac{-2\pm 4i}{2} \\
+    				\implies z_0&=-1\pm 2i
+    			\end{align*}
+    			Hence the poles are $z_0=-1+2i$ and $z_0=-1-2i$.
+    			
+    			The given circle $C$ is centred at $z=-1$ and has a radius of 1.
+    			\begin{figure}[h!]
+    				\centering
+    				\includegraphics[width=0.5\textwidth]{figures/fig_cit-eg-02}
+    			\end{figure}
+    			
+    			We find that both of the singularities $z_0=-1\pm 2i$ lie outside the circle $C$. Hence the function $f(z)$ is analytic everywhere inside $C$.
+    			
+    			Therefore, by Cauchy's integral theorem, we have
+    			\begin{align*}
+    				\oint_{C}{f(z)\dd{z}}&=0 \\
+    				\implies\oint_{C}{\dfrac{z+4}{z^2+2z+5}\dd{z}}&=0
+    			\end{align*}
+    			
+    		\end{enumerate}
     
     \subsection{Cauchy's integral formulas}
     	\begin{figure}[h!]
@@ -101,3 +149,73 @@
     	\begin{align*}
     		f^{(n)}(a)&=\dfrac{n!}{2\pi i}\oint_{C}{\dfrac{f(z)}{(z-a)^{n+1}}\dd{z}},\quad n=1,2,3,\dots
     	\end{align*}
+    	
+    	\subsubsection*{Examples}
+    		\begin{enumerate}
+    			\item Evaluate the integral
+    			$$\oint_{C}{\dfrac{z\dd{z}}{z^2-3z+2}}$$
+    			where $C$ is the circle $|z-2|=\dfrac{1}{2}$.\\
+    			\textbf{Solution:} We find the poles of the integrand by setting the denominator to zero and solving as follows:
+    			\begin{align*}
+    				z^2-3z+2&=0 \\
+    				\implies z^2-z-2z+2&=0 \\
+    				\implies z(z-1)-2(z-1)&=0 \\
+    				\implies (z-1)(z-2)&=0 \\
+    				\implies z_0=1, 2
+    			\end{align*}
+    			Hence the poles are $z_0=1$ and $z_0=2$.
+    			
+    			The given circle $C$ is centred at $z=2$ and has a radius of $\dfrac{1}{2}$.
+    			\begin{figure}[h!]
+    				\centering
+    				\includegraphics[width=0.5\textwidth]{figures/fig_cif-eg-01}
+    			\end{figure}
+    			
+    			We find that that out of the two singularities, the pole at $z_0=2$ lies inside $C$.
+    			
+    			We choose $f(z)=\dfrac{z}{z-1}$, then $f(z)$ is analytic everywhere within $C$. We can then write the integrand as
+    			\begin{align*}
+    				\dfrac{z}{z^2-3z+2}=\dfrac{z}{(z-1)(z-2)}=\dfrac{f(z)}{z-2}
+    			\end{align*}
+    			
+    			By Cauchy's integral formula, we have
+    			\begin{align*}
+    				f(2)&=\dfrac{1}{2\pi i}\oint_{C}{\dfrac{f(z)}{z-2}\dd{z}} \\
+    				\implies\oint_{C}{\dfrac{f(z)}{z-2}\dd{z}}&=2\pi if(2) \\
+    					&=2\pi i\qty(\dfrac{2}{2-1}) \\
+    				\implies\oint_{C}{\dfrac{z\dd{z}}{z^2-3z+2}}&=4\pi i
+    			\end{align*}
+    			
+    			\item Evaluate the integral
+    			$$\oint_{C}{\dfrac{2z+1}{z^2+z}\dd{z}}$$
+    			where $C$ is the circle $|z|=\dfrac{1}{2}$.\\
+    			\textbf{Solution:} We find the poles of the integrand by setting the denominator to zero and solving as follows:
+    			\begin{align*}
+    				z^2+z&=0 \\
+    				\implies z(z+1)&=0 \\
+    				\implies z_0=0, -1
+    			\end{align*}
+    			Hence the poles are $z_0=0$ and $z_0=-1$.
+    			
+    			The given circle $C$ is centred at $z=0$ and has a radius of $\dfrac{1}{2}$.
+    			\begin{figure}[h!]
+    				\centering
+    				\includegraphics[width=0.5\textwidth]{figures/fig_cif-eg-02}
+    			\end{figure}
+    			
+    			We find that that out of the two singularities, the pole at $z_0=0$ is enclosed within $C$.
+    			
+    			We choose $f(z)=\dfrac{2z+1}{z+1}$, then $f(z)$ is analytic everywhere within $C$. We can then write the integrand as
+    			\begin{align*}
+    				\dfrac{2z+1}{z^2+z}=\dfrac{2z+1}{z(z+1)}=\dfrac{f(z)}{z}
+    			\end{align*}
+    			
+    			By Cauchy's integral formula, we have
+    			\begin{align*}
+    				f(0)&=\dfrac{1}{2\pi i}\oint_{C}{\dfrac{f(z)}{z-0}\dd{z}} \\
+    				\implies\oint_{C}{\dfrac{f(z)}{z}\dd{z}}&=2\pi if(0) \\
+    					&=2\pi i\qty(\dfrac{2\times 0+1}{0+1}) \\
+    				\implies\oint_{C}{\dfrac{2z+1}{z^2+z}\dd{z}}&=2\pi i
+    			\end{align*}
+    			
+    		\end{enumerate}
