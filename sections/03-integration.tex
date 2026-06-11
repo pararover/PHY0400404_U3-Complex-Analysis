@@ -1,4 +1,10 @@
 \section{Complex integration}
+	If a complex function $f(z)$ is single-valued and continuous in some region $\mathcal{R}$ in the complex plane, then we can
+	define the complex integral of $f(z)$ between two points $A$ and $B$ along some curve in $\mathcal{R}$. Its value will depend, in general, upon the path taken between $A$ and $B$, as shown in the figure below.
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=0.4\textwidth]{figures/fig_complex-integral}
+	\end{figure}
     
     \subsection{Simply and multiply connected regions}
     	A region $\mathcal{R}$ is called \emph{simply-connected} if any simple closed curve, which lies in $\mathcal{R}$, can be
@@ -26,13 +32,59 @@
     			\includegraphics[width=0.35\textwidth]{figures/fig_region-holes}
     		\end{figure}
     		Intuitively, a simply-connected region is one that does not have any ``holes'' in it, while a multiply-connected region is one that does. The multiply-connected region of the above figure has three holes and, hence, is said to be triply-connected.
+    		
+    \subsection{Green's theorem}
+    	Let $P(x, y)$ and $Q(x, y)$ be continuous and have continuous partial derivatives in a region $\mathcal{R}$ and on its boundary $C$. Then Green's theorem states that
+    	\begin{align*}
+    		\oint_{C}{\qty[P\dd{x}+Q\dd{y}]}=\iint_{\mathcal{R}}{\qty(\pdv{Q}{x}-\pdv{P}{y})\dd{x}\dd{y}}
+    	\end{align*}
+    	where $\mathcal{R}$ may be simply or multiply connected.
     
     \subsection{Cauchy's integral theorem}
     	Let $f(z)$ be analytic in a region $\mathcal{R}$ and on its boundary $C$. Then
     	\begin{align*}
-    		\boxed{\oint_{C}{f(z)\,\dd{z}}=0}
+    		\boxed{\oint_{C}{f(z)\dd{z}}=0}
     	\end{align*}
-    	This fundamental theorem, known as \emph{Cauchy's integral theorem}, is valid for both simply- and multiply-connected regions. 
+    	This fundamental theorem is known as \emph{Cauchy's integral theorem}.
+    	
+    	\subsubsection*{Proof}
+    		\setcounter{equation}{0}
+    		Suppose a function $f(z)$ is analytic and its derivative $f'(z)$ is continuous at all points on a simply connected region $\mathcal{R}$ which is bounded by a simple curve $C$.
+    		
+    		Let,
+    		\begin{align*}
+    			f(z)=u(x,y)+iv(x,y)
+    		\end{align*}
+    		and
+    		\begin{align*}
+    			z&=x+iy \\
+    			\implies\dd{z}&=\dd{x}+i\dd{y}
+    		\end{align*}
+    		
+    		Then we have
+    		\begin{align}
+    			\oint_{C}{f(z)\dd{z}}&=\oint_{C}{\qty[u(x,y)+iv(x,y)]\qty(\dd{x}+i\dd{y})} \nonumber\\
+    			\implies\oint_{C}{f(z)\dd{z}}&=\oint_{C}{\qty(u\dd{x}-v\dd{y})}+i\oint_{C}{\qty(v\dd{x}+u\dd{y})} \label{eqn:cit:oint-f}
+    		\end{align}
+    		
+    		Applying Green's theorem on the first integral on the RHS of equation (\ref{eqn:cit:oint-f}), we get
+    		\begin{align}
+    			\oint_{C}{\qty(u\dd{x}-v\dd{y})}&=\iint_{\mathcal{R}}{\qty(-\pdv{v}{x}-\pdv{u}{y})\dd{x}\dd{y}} \label{eqn:cit:integ-1}
+    		\end{align}
+    		Again, applying Green's theorem on the second integral on the RHS of equation (\ref{eqn:cit:oint-f}), we get
+    		\begin{align}
+    			\oint_{C}{\qty(v\dd{x}+u\dd{y})}&=\iint_{\mathcal{R}}{\qty(\pdv{u}{x}-\pdv{v}{y})\dd{x}\dd{y}} \label{eqn:cit:integ-2}
+    		\end{align}
+    		Because $f(z)$ is analytic, it satisfies the Cauchy-Riemann conditions, and so we have
+    		\begin{align*}
+    			\pdv{u}{x}=\pdv{v}{y}&\qq{and}\pdv{u}{y}=-\pdv{v}{x} \\
+    			\implies\pdv{u}{x}-\pdv{v}{y}=0&\qq{and}-\pdv{v}{x}-\pdv{u}{y}=0
+    		\end{align*}
+    		Therefore, from equation (\ref{eqn:cit:oint-f}) we obtain
+    		\begin{align*}
+    			\oint_{C}{f(z)\dd{z}}&=0
+    		\end{align*}
+    		which proves \emph{Cauchy's integral theorem}.
     
     \subsection{Cauchy's integral formulas}
     	\begin{figure}[h!]
