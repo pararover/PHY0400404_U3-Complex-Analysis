@@ -62,15 +62,62 @@
 					\implies a_n&=\dfrac{n!}{n^n} \\
 					\therefore\;a_{n+1}&=\dfrac{(n+1)!}{(n+1)^{n+1}}
 				\end{align*}
+				So we obtain
+				\begin{align*}
+					\dfrac{a_{n+1}}{a_n}&=\dfrac{(n+1)!}{(n+1)^{n+1}}\cdot\dfrac{n^n}{n!} \\
+						&=\dfrac{\cancel{(n+1)}\cancel{n!}}{(n+1)^{n}\cancel{(n+1)}}\cdot\dfrac{n^n}{\cancel{n!}}=\dfrac{n^n}{(n+1)^n} \\
+						&=\dfrac{\cancel{n^n}}{\cancel{n^n}\qty(1+1/n)^n} \\
+					\implies\dfrac{a_{n+1}}{a_n}&=\dfrac{1}{\qty(1+\dfrac{1}{n})^n}
+				\end{align*}
 				
 				Hence the radius of convergence is
 				\begin{align*}
-					\dfrac{1}{R}&=\lim_{n\to\infty}{\qty|\dfrac{a_{n+1}}{a_n}|}
+					\dfrac{1}{R}&=\lim_{n\to\infty}{\qty|\dfrac{a_{n+1}}{a_n}|} \\
+						&=\lim_{n\to\infty}{\qty|\dfrac{1}{\qty(1+\dfrac{1}{n})^n}|} \\
+						&=\qty|\dfrac{1}{\lim\limits_{n\to\infty}{\qty(1+\dfrac{1}{n})^n}}|
 				\end{align*}
+				
+				Now, the Euler's constant $e$ can be obtained as a limit as given below
+				\begin{align*}
+					e=\lim_{n\to\infty}{\qty(1+\dfrac{1}{n})^n}
+				\end{align*}
+				
+				Therefore, we finally obtain the radius of convergence as
+				\begin{align*}
+					\dfrac{1}{R}&=\qty|\dfrac{1}{e}|=\dfrac{1}{e} \\
+					\implies\Aboxed{R&=e}
+				\end{align*}
+				
+				which implies that the given power series converges for all points in the circular region $|z|<e$.
 			\end{enumerate}
 	
 	\subsection{Taylor's series expansion of a complex function}
 	
-	\subsection{Laurent's series expansion of a complex function}
+		\subsubsection{Taylor's theorem}
+			If a complex function $f(z)$ is analytic at all points inside a circle $C$, with its centre at the point $a$ and radius $R$, then at each point $z$ inside $C$, we can expand $f(z)$ in the form of a Taylor's power series as given below:
+			\begin{align*}
+				f(z)&=f(a)+f'(a)(z-a)+\dfrac{f''(a)}{2!}(z-a)^2+\dfrac{f'''(a)}{3!}(z-a)^3+\cdots \\
+				\implies f(z)&=\sum_{n=0}^{\infty}{\dfrac{f^{(n)}(a)}{n!}(z-a)^n}
+			\end{align*}
+			where $f^{(n)}(a)=\left.\dv[n]{f}{z}\right|_{z=a}$ is the $n^\text{th}$ derivative of $f(z)$ at $z=a$.
 	
-	\subsubsection{Residue theorem}
+	\newpage
+	\subsection{Laurent's series expansion of a complex function}
+		
+		\subsubsection{Laurent's theorem}
+			\begin{figure}[h!]
+				\centering
+				\includegraphics[width=0.4\textwidth]{figures/fig_laurents-theorem}
+			\end{figure}
+			Let $C_1$ and $C_2$ be concentric circles of radii $R_1$ and $R_2$, respectively, and center at $a$. Suppose that $f(z)$ is single-valued and analytic on $C_1$ and $C_2$ and, in the ring-shaped region $\mathcal{R}$ between $C_1$ and $C_2$. Let $z=a+h$ be any point in $\mathcal{R}$. Then we have
+			\begin{align*}
+				f(z)&=\cdots+\dfrac{a_{-3}}{(z-a)^3}+\dfrac{a_{-2}}{(z-a)^2}+\dfrac{a_{-1}}{z-a}+a_0+a_1(z-a)+a_2(z-a)^2+a_3(z-a)^3+\cdots
+			\end{align*}
+			where
+			\begin{align*}
+				a_n&=\dfrac{1}{2\pi i}\oint_{C_1}{\dfrac{f(z)\dd{z}}{(z-a)^{n+1}}};\;n=0,1,2,\dots \\
+				a_{-n}&=\dfrac{1}{2\pi i}\oint_{C_1}{(z-a)^{n-1}f(z)\dd{z}};\;n=1,2,3,\dots
+			\end{align*}
+			with $C_1$ and $C_2$ being traversed in the positive direction with respect to their interiors.
+	
+	%\subsubsection{Residue theorem}
